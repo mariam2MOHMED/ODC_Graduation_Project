@@ -16,18 +16,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-  create: (context) => HomeCubit()..getProducts(),
-  child: BlocConsumer<HomeCubit, HomeState>(
-  listener: (context, state) {
-    // TODO: implement listener
-  },
-  builder: (context, state) {
-    return
-      SafeArea(
-        child:
-        Scaffold(
-          body: SingleChildScrollView(
+    return BlocConsumer<HomeCubit, HomeState>(
+    listener: (context, state) {
+      // TODO: implement listener
+    },
+    builder: (context, state) {
+      return
+        SingleChildScrollView(
             child: Column(
               children: [
                 Stack(children: [
@@ -53,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                     padding:  EdgeInsets.symmetric(vertical: 30.h,horizontal: 20.w),
                     child: Column(
                       children: [
-            
+
                         Row(
                           children: [
                             CircleAvatar(radius: 24.r,
@@ -84,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                             SizedBox(width: 7.w,),
                             CircleAvatar(radius: 24.r,
                               backgroundImage: AssetImage("assets/images/Profile.png"),
-            
+
                             ),
                           ],
                         ),
@@ -92,8 +87,8 @@ class HomeScreen extends StatelessWidget {
                         Text("Find best device for\n your setup!",style: Styles
                             .style32.copyWith(color: Colors.white),)
                         ,SizedBox(height: 20.h,),
-            
-            
+
+
                         Stack(clipBehavior: Clip.none,
                           children: [
                             Container(     width: 335.w,
@@ -119,8 +114,8 @@ class HomeScreen extends StatelessWidget {
                                             ImageIcon(AssetImage("assets/images/halfarrow.png"),color: Colors.white,)
                                           ],
                                         ),
-            
-            
+
+
                                       ],
                                     ),
                                     SizedBox(width: 25.w,),
@@ -134,12 +129,12 @@ class HomeScreen extends StatelessWidget {
                                     //        top: 50.0,
                                     //        child: Image.asset(
                                     // "assets/images/hear.png"))
-            
+
                                   ],
                                 ),
                               ),
                             ),
-            
+
                           ],
                         )
                       ],
@@ -195,8 +190,8 @@ class HomeScreen extends StatelessWidget {
                               copyWith(color: AppColors.black,fontWeight: FontWeight.bold),),
                             ),
                           ),
-            
-            
+
+
                         ],
                       ),
                       SizedBox(height: 16.h,),
@@ -242,18 +237,17 @@ class HomeScreen extends StatelessWidget {
                                       (color: AppColors.pink, size: 30.sp),
                                   ),
                                 ));
-                          },itemCount: context.read<HomeCubit>().products.length,)
+                          },itemCount:
+                      context.read<HomeCubit>().products.length,)
                     ],
                   ),
                 )
               ],
             ),
-          ),
-        ),
-      );
- ;
-  },
-),
-);
+          )
+
+     ;
+    },
+    );
   }
 }

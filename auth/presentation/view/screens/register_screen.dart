@@ -8,6 +8,7 @@ import 'package:graduation_orange/core/widets/custom_btn.dart';
 import 'package:graduation_orange/features/auth/logic/auth_cubit/auth_cubit.dart';
 import 'package:graduation_orange/features/auth/presentation/view/screens/login_screen.dart';
 import 'package:graduation_orange/features/auth/presentation/view/widgets/label_text_input.dart';
+import 'package:graduation_orange/features/home/presentation/screens/home_page.dart';
 import 'package:graduation_orange/test.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 class RegisterScreen extends StatelessWidget {
@@ -26,7 +27,11 @@ class RegisterScreen extends StatelessWidget {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text("Success Register"),
-            ));}if (state is AuthRegisterFailure) {
+
+            ));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                HomePage()));
+          }if (state is AuthRegisterFailure) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.message),

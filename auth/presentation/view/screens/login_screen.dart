@@ -6,6 +6,8 @@ import 'package:graduation_orange/core/constants/styles.dart';
 import 'package:graduation_orange/core/widets/custom_btn.dart';
 import 'package:graduation_orange/features/auth/presentation/view/screens/register_screen.dart';
 import 'package:graduation_orange/features/auth/presentation/view/widgets/label_text_input.dart';
+import 'package:graduation_orange/features/home/presentation/screens/home_page.dart';
+import 'package:graduation_orange/features/home/presentation/screens/modules/home_screen.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../../../../core/constants/App_Colors.dart';
@@ -30,7 +32,8 @@ class LoginScreen extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("Success Login"),
               ));
-
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                  HomePage()));
             }
     if (state is AuthLoginFailure) {
               Navigator.pop(context);
@@ -88,6 +91,7 @@ class LoginScreen extends StatelessWidget {
                                 onPressed: () {
                                   context.read<AuthCubit>().login(
                                       userNameController.text, passwordController.text);
+
                                 }),
                             SizedBox(height: 16),
                             Row(
